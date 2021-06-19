@@ -1,18 +1,50 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+    <div class="home">
+        <ul class="footer">
+            <li class="icons">
+                <router-link :to="{ name: 'list' }">新闻列表</router-link>
+            </li>
+            <li class="icons">
+                <router-link :to="{ name: 'user' }">个人中心</router-link>
+            </li>
+        </ul>
+        <router-view/>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+    // @ is an alias to /src
 
-export default {
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
-};
+    export default {
+        name: "Home",
+
+    };
 </script>
+<style lang="scss">
+    $main-color: #42b983;
+    .footer{
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+    .icons{
+        font-size: 16px;
+        flex: 1;
+        text-align: center;
+        border-top: 1px solid $main-color;
+        a{
+            color: $main-color;
+            display: block;
+            &.active{
+                color: #fff;
+                background: $main-color;
+            }
+        }
+    }
+</style>
